@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Point Of Sale</string>
+    <string name="add_item">Shto Artikull</string>
+    <string-array name="menu_items">
+        <item>Faturat</item>
+    </string-array>
+    <string name="navigation_drawer_open">Hap</string>
+    <string name="navigation_drawer_close">Mbyll</string>
+    <string name="receipt_nr">Fatura #%1$d</string>
+    <string name="create_cart">Krijo Shporten</string>
+    <string name="all_items">Te gjitha</string>
+    <string name="add">Shto</string>
+    <string name="general_info">Informacion i pergjithshem</string>
+    <string name="prompt_name">Emertimi</string>
+    <string name="prompt_category">Kategoria</string>
+    <string name="label_vat">TVSH(%)</string>
+    <string name="prompt_scan">Skano</string>
+    <string name="prices">Cmimet</string>
+    <string name="prompt_cost">Kosto</string>
+    <string name="prompt_price">Cmimi</string>
+    <string name="required_field">Plotesoni fushen</string>
+    <string name="select">Zgjidh</string>
+    <string name="add_category">-- Shto Kategori --</string>
+    <string name="description">Pershkrimi</string>
+    <string name="add_categori_label">Shto Kategori</string>
+    <string name="saving_category">Kategoria po ruhet…</string>
+    <string name="category_already_exists">Kjo kategori ekziston.</string>
+    <string name="select_category">Zgjidh nje kategori.</string>
+    <string name="configurations">Konfigurime</string>
+    <string name="vat">TVSH</string>
+    <string name="set_vat">Vendos TVSH ne %</string>
+    <string name="pref_tax">Takse</string>
+    <string name="saving_item">Artikulli po ruhet…</string>
+    <string name="cannot_add_item">Nuk mund te shtohet artikulli, ju lutem provojeni me vone.</string>
+    <string name="add_receipt">Shto fature</string>
+    <string name="new_receipt">Fature e re</string>
+    <string name="cannot_create_receipt">Nuk mund te krijohet nje fature e re tani.</string>
+    <string name="receipts">Faturat</string>
+</resources>

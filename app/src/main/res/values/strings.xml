@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Point Of Sale</string>
+    <string name="add_item">Add Item</string>
+    <string-array name="menu_items">
+        <item>Receipts</item>
+    </string-array>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+    <string name="receipt_nr">Receipt #%1$d</string>
+    <string name="create_cart">Create Cart</string>
+    <string name="all_items">All Items</string>
+    <string name="add">Add</string>
+    <string name="general_info">General Info</string>
+    <string name="prompt_name">Name</string>
+    <string name="prompt_category">Category</string>
+    <string name="label_vat">VAT(%)</string>
+    <string name="prompt_scan">Scan</string>
+    <string name="prices">Prices</string>
+    <string name="prompt_cost">Cost</string>
+    <string name="prompt_vat">(%)</string>
+    <string name="prompt_price">Price</string>
+    <string name="prompt_barcode">Barcode</string>
+    <string name="required_field">Fill this field</string>
+    <string name="select">Select</string>
+    <string name="add_category">-- Add Category --</string>
+    <string name="description">Description</string>
+    <string name="add_categori_label">Add Category</string>
+    <string name="saving_category">Saving category…</string>
+    <string name="category_already_exists">This category already exists.</string>
+    <string name="select_category">Pick  a category.</string>
+    <string name="configurations">Configurations</string>
+    <string name="vat">VAT</string>
+    <string name="set_vat">Set VAT in %</string>
+    <string name="pref_default_vat">0</string>
+    <string name="pref_tax">Tax</string>
+    <string name="saving_item">Saving item…</string>
+    <string name="cannot_add_item">Cannot add item, please try again.</string>
+    <string name="add_receipt">Add receipt</string>
+    <string name="new_receipt">New receipt</string>
+    <string name="cannot_create_receipt">Cannot create a new receipt right now.</string>
+    <string name="receipts">Receipts</string>
+    <string name="amount_x_price">%1$s x %2$s</string>
+</resources>
