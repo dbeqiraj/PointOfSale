@@ -1,4 +1,4 @@
-package com.dbeqiraj.pointofsale.custom_views.adapter
+package com.dbeqiraj.pointofsale.custom_views.clearable_edittext
 
 import android.text.Editable
 import android.text.TextWatcher

@@ -7,12 +7,15 @@ import android.view.ViewGroup
 import com.dbeqiraj.pointofsale.R
 import com.dbeqiraj.pointofsale.database.entity.ItemAndReceiptRow
 import com.dbeqiraj.pointofsale.ui.cart.interfaces.OnAddOrRemoveItem
+import com.dbeqiraj.pointofsale.ui.cart.interfaces.OnItemViewClick
 import com.dbeqiraj.pointofsale.utilities.NumberUtils
 import kotlinx.android.synthetic.main.list_pick_items_child.view.*
 
-class ItemAdapter constructor(layoutInflater: LayoutInflater, onAddOrRemoveItem: OnAddOrRemoveItem) : RecyclerView.Adapter<ItemAdapter.MyViewHolder>() {
+class ItemAdapter constructor(layoutInflater: LayoutInflater, onAddOrRemoveItem: OnAddOrRemoveItem, onItemViewClick: OnItemViewClick) :
+        RecyclerView.Adapter<ItemAdapter.MyViewHolder>() {
 
     private val mOnAddOrRemoveItem: OnAddOrRemoveItem = onAddOrRemoveItem
+    private val mOnItemViewClick: OnItemViewClick = onItemViewClick
     private val mLayoutInflater: LayoutInflater = layoutInflater
 
     val mItemsAndReceiptRowsList: MutableList<ItemAndReceiptRow> = ArrayList()
@@ -36,6 +39,7 @@ class ItemAdapter constructor(layoutInflater: LayoutInflater, onAddOrRemoveItem:
 
         holder.add.setOnClickListener(onAddItemClick(itemAndReceiptRow))
         holder.remove.setOnClickListener(onRemoveItemClick(itemAndReceiptRow))
+        holder.itemView.setOnClickListener(onItemViewClick(itemAndReceiptRow))
     }
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -53,5 +57,9 @@ class ItemAdapter constructor(layoutInflater: LayoutInflater, onAddOrRemoveItem:
 
     private fun onRemoveItemClick(itemAndReceiptRow: ItemAndReceiptRow) = View.OnClickListener {
         mOnAddOrRemoveItem.onRemove(itemAndReceiptRow)
+    }
+
+    private fun onItemViewClick(itemAndReceiptRow: ItemAndReceiptRow) = View.OnClickListener {
+        mOnItemViewClick.onClick(itemAndReceiptRow)
     }
 }

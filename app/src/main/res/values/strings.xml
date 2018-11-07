@@ -40,4 +40,11 @@
     <string name="cannot_create_receipt">Cannot create a new receipt right now.</string>
     <string name="receipts">Receipts</string>
     <string name="amount_x_price">%1$s x %2$s</string>
+    <string name="prompt_amount">Amount</string>
+    <string name="prompt_total">Total</string>
+    <string name="apply_tax">Apply tax</string>
+    <string name="ok">OK</string>
+    <string name="prompt_cancel">Cancel</string>
+    <string name="total_money">Total %1$s</string>
+    <string name="prompt_done">Done</string>
 </resources>

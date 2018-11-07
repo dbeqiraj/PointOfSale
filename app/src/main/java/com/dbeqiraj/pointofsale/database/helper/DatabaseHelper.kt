@@ -5,7 +5,7 @@ import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import com.dbeqiraj.pointofsale.R
 
-class PosDatabaseHelper(context: Context) {
+class DatabaseHelper(context: Context) {
 
     companion object {
         val DEFAULT_CATEGORY_ID = 0

@@ -37,4 +37,8 @@
     <string name="new_receipt">Fature e re</string>
     <string name="cannot_create_receipt">Nuk mund te krijohet nje fature e re tani.</string>
     <string name="receipts">Faturat</string>
+    <string name="prompt_amount">Sasia</string>
+    <string name="apply_tax">Apliko takse</string>
+    <string name="prompt_cancel">Anullo</string>
+    <string name="prompt_done">Perfundo</string>
 </resources>

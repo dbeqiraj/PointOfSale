@@ -8,11 +8,12 @@ import android.view.LayoutInflater
 import com.dbeqiraj.pointofsale.R
 import com.dbeqiraj.pointofsale.base.BaseFragment
 import com.dbeqiraj.pointofsale.database.PosDatabase
-import com.dbeqiraj.pointofsale.database.helper.PosDatabaseHelper.Companion.DEFAULT_CATEGORY_ID
+import com.dbeqiraj.pointofsale.database.helper.DatabaseHelper.Companion.DEFAULT_CATEGORY_ID
 import com.dbeqiraj.pointofsale.di.component.DaggerCartComponent
 import com.dbeqiraj.pointofsale.di.module.CartModule
 import com.dbeqiraj.pointofsale.ui.cart.adapter.ItemAdapter
 import com.dbeqiraj.pointofsale.ui.cart.extensions.onAddOrRemoveItem
+import com.dbeqiraj.pointofsale.ui.cart.extensions.onItemViewClick
 import com.dbeqiraj.pointofsale.vp.presenter.ItemPresenter
 import com.dbeqiraj.pointofsale.vp.presenter.ReceiptPresenter
 import com.dbeqiraj.pointofsale.vp.presenter.ReceiptRowPresenter
@@ -53,7 +54,7 @@ class PickItemsFragment : BaseFragment(), PickItemsView {
     }
 
     private fun getItems(){
-        val adapter = ItemAdapter(LayoutInflater.from(activity), onAddOrRemoveItem)
+        val adapter = ItemAdapter(LayoutInflater.from(activity), onAddOrRemoveItem, onItemViewClick)
         setupAdapter(adapter)
         val itemsAndReceiptRowLiveData =
                 if (categoryId == DEFAULT_CATEGORY_ID.toLong()) {

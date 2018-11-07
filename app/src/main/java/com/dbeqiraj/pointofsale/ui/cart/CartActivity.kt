@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.dbeqiraj.pointofsale.R
 import com.dbeqiraj.pointofsale.base.BaseActivity
+import com.dbeqiraj.pointofsale.database.PosDatabase
 import com.dbeqiraj.pointofsale.database.entity.Receipt
 import com.dbeqiraj.pointofsale.di.component.DaggerCartComponent
 import com.dbeqiraj.pointofsale.di.module.CartModule
@@ -32,6 +33,9 @@ class CartActivity : BaseActivity(), CartView {
 
     @Inject
     internal lateinit var receiptRowPresenter: ReceiptRowPresenter
+
+    @Inject
+    internal lateinit var db: PosDatabase
 
     init {
         menu = R.menu.cart_menu

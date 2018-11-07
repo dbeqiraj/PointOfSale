@@ -1,4 +1,4 @@
-package com.dbeqiraj.pointofsale.custom_views
+package com.dbeqiraj.pointofsale.custom_views.clearable_edittext
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,7 +9,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import com.dbeqiraj.pointofsale.R
-import com.dbeqiraj.pointofsale.custom_views.adapter.TextWatcherAdapter
 
 internal class ClearableEditText : android.support.v7.widget.AppCompatEditText, View.OnTouchListener, View.OnFocusChangeListener, TextWatcherAdapter.TextWatcherListener {
 

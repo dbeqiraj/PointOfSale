@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/white">
 
-            <com.dbeqiraj.pointofsale.custom_views.ClearableEditText
+            <com.dbeqiraj.pointofsale.custom_views.clearable_edittext.ClearableEditText
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
 
             </LinearLayout>
 
-            <com.dbeqiraj.pointofsale.custom_views.ClearableEditText
+            <com.dbeqiraj.pointofsale.custom_views.clearable_edittext.ClearableEditText
                 android:id="@+id/vat"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -139,7 +139,7 @@
                 android:padding="7dp"
                 android:background="@drawable/white_input_right_line">
 
-                <com.dbeqiraj.pointofsale.custom_views.ClearableEditText
+                <com.dbeqiraj.pointofsale.custom_views.clearable_edittext.ClearableEditText
                     android:id="@+id/barcode"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -183,7 +183,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/white">
 
-            <com.dbeqiraj.pointofsale.custom_views.ClearableEditText
+            <com.dbeqiraj.pointofsale.custom_views.clearable_edittext.ClearableEditText
                 android:id="@+id/price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -205,7 +205,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/white">
 
-            <com.dbeqiraj.pointofsale.custom_views.ClearableEditText
+            <com.dbeqiraj.pointofsale.custom_views.clearable_edittext.ClearableEditText
                 android:id="@+id/cost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

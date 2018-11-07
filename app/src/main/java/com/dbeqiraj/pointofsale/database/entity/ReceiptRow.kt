@@ -28,11 +28,11 @@ class ReceiptRow(
 
         @NonNull
         @ColumnInfo(name = "unit_price")
-        val unitPrice: Float,
+        var unitPrice: Float,
 
         @NonNull
         @ColumnInfo(name = "total_price")
-        val totalPrice: Float,
+        var totalPrice: Float,
 
         @NonNull
         @ColumnInfo(name = "rec_row_tax")
@@ -40,7 +40,7 @@ class ReceiptRow(
 
         @NonNull
         @ColumnInfo(name = "has_tax")
-        val hasTax: Boolean,
+        var hasTax: Boolean,
 
         @NonNull
         @ColumnInfo(name = "rec_row_item_id")

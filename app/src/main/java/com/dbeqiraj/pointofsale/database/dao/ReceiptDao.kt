@@ -3,7 +3,6 @@ package com.dbeqiraj.pointofsale.database.dao
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*
 import com.dbeqiraj.pointofsale.database.entity.Receipt
-import com.dbeqiraj.pointofsale.database.entity.ReceiptRow
 
 @Dao
 interface ReceiptDao {
@@ -19,14 +18,7 @@ interface ReceiptDao {
 
     @Query("UPDATE receipt " +
             "SET total = COALESCE((SELECT " +
-            "SUM(" +
-            "(amount * unit_price) + " +
-            "CASE  " +
-            "WHEN has_tax THEN " +
-            "(amount * unit_price) * rec_row_tax/100 " +
-            "ELSE " +
-            "0 " +
-            "END ) as total " +
+            "SUM((amount * unit_price) + CASE  WHEN has_tax THEN (amount * unit_price) * rec_row_tax/100 ELSE 0 END ) as total " +
             "FROM receipt_row " +
             "WHERE rec_row_receipt_id = :id), 0) " +
             "WHERE receipt_id = :id")

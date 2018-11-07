@@ -15,6 +15,8 @@ class ReceiptRowPresenter @Inject constructor() : BasePresenter<CartView>() {
 
     fun getRowsByReceipt(id: Long): LiveData<MutableList<ReceiptRow>> = db.receiptRowDao().getRowsByReceipt(id)
 
+    fun getRowById(id: Long): LiveData<ReceiptRow> = db.receiptRowDao().getRowById(id)
+
     fun getItemsAndRowsByReceipt(id: Long): LiveData<MutableList<ItemAndReceiptRow>> = db.receiptRowDao().getItemsAndRowsByReceipt(id)
 
     fun getRowByReceiptAndItem(receipt_id: Long, item_id: Long): ReceiptRow? = db.receiptRowDao().getRowByReceiptAndItem(receipt_id, item_id)

@@ -38,7 +38,7 @@ abstract class BaseFragment: Fragment() {
         setOnClickListeners()
     }
 
-    protected fun getApplicationComponent(): ApplicationComponent = ((context as CartActivity).applicationContext as PosApp).mApplicationComponent
+    protected fun getApplicationComponent(): ApplicationComponent = ((context as BaseActivity).applicationContext as PosApp).mApplicationComponent
 
     protected open fun setOnClickListeners() {}
 
