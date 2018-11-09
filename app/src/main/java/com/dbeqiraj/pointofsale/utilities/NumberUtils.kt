@@ -15,4 +15,11 @@ object NumberUtils {
         else
             String.format("%.02f", amount)
     }
+
+    fun formatPrice(price: Float): String {
+        return if (price == price.toInt().toFloat())
+            String.format("%.01f", price)
+        else
+            String.format("%.02f", price)
+    }
 }

@@ -7,8 +7,9 @@ import com.dbeqiraj.pointofsale.ui.cart.fragment.PickItemsFragment
 import com.dbeqiraj.pointofsale.ui.cart.interfaces.OnAddOrRemoveItem
 import com.dbeqiraj.pointofsale.ui.cart.interfaces.OnItemViewClick
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
-val PickItemsFragment.onAddOrRemoveItem: OnAddOrRemoveItem
+internal val PickItemsFragment.onAddOrRemoveItem: OnAddOrRemoveItem
     get() = object : OnAddOrRemoveItem {
         override fun onAdd(itemAndReceiptRow: ItemAndReceiptRow) {
             doAsync {
@@ -18,9 +19,7 @@ val PickItemsFragment.onAddOrRemoveItem: OnAddOrRemoveItem
                     db.receiptRowDao().update(receiptRow)
                     db.receiptRowDao().updateTotal(receiptRow.id)
                 } else {
-                    val row_total_price = itemAndReceiptRow.item.price * (1 + itemAndReceiptRow.item.tax!! / 100)
-                    val newRow = ReceiptRow(1F, itemAndReceiptRow.item.price, row_total_price, itemAndReceiptRow.item.tax!!, true, itemAndReceiptRow.item.id, receipt.id)
-                    db.receiptRowDao().insert(newRow)
+                    insertReceiptRow(itemAndReceiptRow, 1F)
                 }
                 db.receiptDao().updateTotal(receipt.id)
             }
@@ -30,7 +29,7 @@ val PickItemsFragment.onAddOrRemoveItem: OnAddOrRemoveItem
             doAsync {
                 val receiptRow = receiptRowPresenter.getRowByReceiptAndItem(receipt.id, itemAndReceiptRow.item.id)
                 if (receiptRow != null) {
-                    if ( receiptRow.amount > 1 ) {
+                    if (receiptRow.amount > 1) {
                         receiptRow.amount--
                         db.receiptRowDao().update(receiptRow)
                         db.receiptRowDao().updateTotal(receiptRow.id)
@@ -43,9 +42,28 @@ val PickItemsFragment.onAddOrRemoveItem: OnAddOrRemoveItem
         }
     }
 
-val PickItemsFragment.onItemViewClick: OnItemViewClick
-    get() = object : OnItemViewClick{
+internal val PickItemsFragment.onItemViewClick: OnItemViewClick
+    get() = object : OnItemViewClick {
         override fun onClick(itemAndReceiptRow: ItemAndReceiptRow) {
-            EditItemDialog(context!!, itemAndReceiptRow)
+            doAsync {
+                createNewReceiptRowIfNull(itemAndReceiptRow)
+                uiThread { EditItemDialog(context!!, itemAndReceiptRow) }
+            }
         }
     }
+
+private fun PickItemsFragment.createNewReceiptRowIfNull(itemAndReceiptRow: ItemAndReceiptRow) {
+    if (!itemAndReceiptRow.isReceiptRowInitialized()) {
+        val newRow = insertReceiptRow(itemAndReceiptRow, 0F)
+        itemAndReceiptRow.receiptRow = newRow
+    }
+}
+
+private fun PickItemsFragment.insertReceiptRow(itemAndReceiptRow: ItemAndReceiptRow, amount: Float): ReceiptRow {
+    val row_total_price = if (amount > 0) itemAndReceiptRow.item.price * (amount + itemAndReceiptRow.item.tax!! / 100) else 0F
+    val newRow = ReceiptRow(amount, itemAndReceiptRow.item.price, row_total_price, itemAndReceiptRow.item.tax!!, true, itemAndReceiptRow.item.id, receipt.id)
+    val id = db.receiptRowDao().insert(newRow)
+    newRow.id = id
+    return newRow
+}
+

@@ -30,7 +30,7 @@ class ReceiptsAdapter constructor(layoutInflater: LayoutInflater, onReceiptClick
         val receipt = mReceiptsList[position]
         holder.title.text = String.format(mContext.getString(R.string.receipt_nr), receipt.id)
         holder.date.text = receipt.createdOn.toString()
-        holder.total.text = NumberUtils.formatNumber(receipt.total)
+        holder.total.text = NumberUtils.formatPrice(receipt.total)
         holder.itemView.setOnClickListener(onReceiptClicked(receipt))
     }
 

@@ -28,8 +28,8 @@ class ItemAdapter constructor(layoutInflater: LayoutInflater) : RecyclerView.Ada
         val row = mItemsAndReceiptRowsList[position]
 
         holder.name.text = row.item.name
-        holder.amount_x_price.text = String.format(mContext.getString(R.string.amount_x_price), NumberUtils.formatAmount(row.receiptRow.amount),  NumberUtils.formatAmount(row.receiptRow.unitPrice))
-        holder.total.text = NumberUtils.formatNumber(row.receiptRow.totalPrice)
+        holder.amount_x_price.text = String.format(mContext.getString(R.string.amount_x_price), NumberUtils.formatAmount(row.receiptRow.amount),  NumberUtils.formatPrice(row.receiptRow.unitPrice))
+        holder.total.text = NumberUtils.formatPrice(row.receiptRow.totalPrice)
     }
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {

@@ -30,10 +30,10 @@ class ItemAdapter constructor(layoutInflater: LayoutInflater, onAddOrRemoveItem:
 
         holder.name.text = itemAndReceiptRow.item.name
         if (itemAndReceiptRow.isReceiptRowInitialized() ) {
-            holder.price.text = NumberUtils.formatNumber(itemAndReceiptRow.receiptRow.unitPrice)
-            holder.amount.text = NumberUtils.formatNumber(itemAndReceiptRow.receiptRow.amount)
+            holder.price.text = NumberUtils.formatPrice(itemAndReceiptRow.receiptRow.unitPrice)
+            holder.amount.text = NumberUtils.formatAmount(itemAndReceiptRow.receiptRow.amount)
         } else {
-            holder.price.text = NumberUtils.formatNumber(itemAndReceiptRow.item.price)
+            holder.price.text = NumberUtils.formatPrice(itemAndReceiptRow.item.price)
             holder.amount.text = "0"
         }
 

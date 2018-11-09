@@ -33,20 +33,14 @@ class EditItemDialog(context: Context, itemAndReceiptRow: ItemAndReceiptRow) : B
     }
 
     override fun onViewReady() {
-        if (mItemAndReceiptRow.isReceiptRowInitialized()) {
-            dialog.amount.setText(NumberUtils.formatNumber(mItemAndReceiptRow.receiptRow.amount))
-            dialog.price.setText(NumberUtils.formatNumber(mItemAndReceiptRow.receiptRow.unitPrice))
-            setTotal()
-            dialog.apply_tax.isChecked = mItemAndReceiptRow.receiptRow.hasTax
-        } else {
-            dialog.amount.setText("0")
-            dialog.price.setText(NumberUtils.formatNumber(mItemAndReceiptRow.item.price))
-            dialog.total.setText("0")
-        }
+        dialog.amount.setText(NumberUtils.formatAmount(mItemAndReceiptRow.receiptRow.amount))
+        dialog.price.setText(NumberUtils.formatPrice(mItemAndReceiptRow.receiptRow.unitPrice))
+        dialog.apply_tax.isChecked = mItemAndReceiptRow.receiptRow.hasTax
+        setTotal()
         setListeners()
     }
 
-    private fun setListeners(){
+    private fun setListeners() {
         dialog.amount.addTextChangedListener(onAmountChanged)
         dialog.price.addTextChangedListener(onPriceChanged)
         dialog.done.setOnClickListener(onDone())
@@ -57,7 +51,7 @@ class EditItemDialog(context: Context, itemAndReceiptRow: ItemAndReceiptRow) : B
     private fun setTotal() {
         receiptRowLiveData = receiptRowPresenter.getRowById(mItemAndReceiptRow.receiptRow.id)
         receiptRowLiveData.observe((mContext as CartActivity), Observer { receiptRow ->
-            dialog.total.setText(NumberUtils.formatNumber(receiptRow!!.totalPrice))
+            dialog.total.setText(NumberUtils.formatPrice(receiptRow!!.totalPrice))
         })
     }
 
@@ -65,6 +59,7 @@ class EditItemDialog(context: Context, itemAndReceiptRow: ItemAndReceiptRow) : B
         get() = object : DialogInterface.OnDismissListener {
             override fun onDismiss(p0: DialogInterface?) {
                 receiptRowLiveData.removeObservers((mContext as CartActivity))
+                takeUnless { mItemAndReceiptRow.receiptRow.amount > 0 }?.apply { doAsync { db.receiptRowDao().delete(mItemAndReceiptRow.receiptRow) } }
             }
         }
 
