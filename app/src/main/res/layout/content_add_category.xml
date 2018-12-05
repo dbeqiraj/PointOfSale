@@ -3,20 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:scrollbars="none"
-    android:fillViewport="true"
-    android:background="@android:color/white"
-    android:padding="@dimen/margin_horizontal_16dp"
     tools:context="com.dbeqiraj.pointofsale.ui.add_category.AddCategoryActivity"
     tools:showIn="@layout/activity_add_category"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    style="@style/ContentParent">
+    style="@style/ScrollableContentParent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical|top"
         android:orientation="horizontal"
+        android:background="@android:color/white"
+        android:padding="@dimen/margin_horizontal_16dp"
         android:clickable="true"
         android:focusable="true"
         android:focusableInTouchMode="true">
@@ -27,7 +25,7 @@
             android:text="@string/description"
             android:labelFor="@+id/category"/>
 
-        <EditText
+        <com.dbeqiraj.pointofsale.custom_views.clearable_edittext.ClearableEditText
             android:id="@+id/category"
             android:layout_width="0dp"
             android:layout_weight="1"

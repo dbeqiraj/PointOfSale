@@ -2,7 +2,7 @@ package com.dbeqiraj.pointofsale.database.entity
 
 import android.arch.persistence.room.*
 import android.support.annotation.NonNull
-import com.dbeqiraj.pointofsale.utilities.DateTimeConverter
+import com.dbeqiraj.pointofsale.utilities.DateUtils
 import java.util.*
 
 @Entity(
@@ -57,6 +57,6 @@ class ReceiptRow(
 
     @NonNull
     @ColumnInfo(name = "created_on")
-    @TypeConverters(DateTimeConverter::class)
+    @TypeConverters(DateUtils.DateTimeConverter::class)
     var createdOn: Date = Date(System.currentTimeMillis())
 }

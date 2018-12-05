@@ -25,10 +25,16 @@
     <style name="ContentParent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
+        <item name="android:background">@android:color/white</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="layout_constraintTop_toBottomOf">@id/app_bar_layout</item>
+    </style>
+
+    <style name="ScrollableContentParent" parent="ContentParent">
+        <item name="android:scrollbars">none</item>
+        <item name="android:fillViewport">true</item>
     </style>
 
 </resources>
