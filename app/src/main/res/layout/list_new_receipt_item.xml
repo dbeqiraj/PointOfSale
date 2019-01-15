@@ -4,24 +4,17 @@
     android:layout_height="wrap_content"
     android:paddingTop="7dp"
     android:paddingBottom="7dp"
+    android:paddingLeft="@dimen/margin_horizontal_16dp"
+    android:paddingStart="@dimen/margin_horizontal_16dp"
+    android:paddingEnd="@dimen/margin_horizontal_16dp"
     android:background="@drawable/white_input_bottom_line">
-
-    <ImageView
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/white_input_left_line"
-        android:contentDescription="@null"/>
 
     <TextView
         android:id="@+id/amount_x_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/delete"
-        android:layout_toStartOf="@+id/delete"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:text=""/>
 
@@ -30,8 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/amount_x_price"
-        android:layout_toLeftOf="@+id/delete"
-        android:layout_toStartOf="@+id/delete"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:textColor="@android:color/black"
         android:text=""/>
 
@@ -39,8 +32,6 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_horizontal_16dp"
-        android:layout_marginStart="@dimen/margin_horizontal_16dp"
         android:layout_toLeftOf="@id/amount_x_price"
         android:layout_toStartOf="@id/amount_x_price"
         android:layout_alignParentLeft="true"

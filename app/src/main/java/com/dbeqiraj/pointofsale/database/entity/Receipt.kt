@@ -2,6 +2,7 @@ package com.dbeqiraj.pointofsale.database.entity
 
 import android.arch.persistence.room.*
 import android.support.annotation.NonNull
+import com.dbeqiraj.pointofsale.base.BaseEntity
 import com.dbeqiraj.pointofsale.utilities.DateUtils
 import java.io.Serializable
 import java.util.*
@@ -19,7 +20,7 @@ class Receipt(
         @NonNull
         @ColumnInfo(name = "saved")
         val saved: Boolean
-) : Serializable {
+) : BaseEntity(), Serializable {
     @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "receipt_id")

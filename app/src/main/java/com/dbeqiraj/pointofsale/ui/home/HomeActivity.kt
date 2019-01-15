@@ -53,8 +53,8 @@ class HomeActivity : BaseActivity(), HomeView, OnReceiptClicked {
 
         val receiptsLiveData = receiptPresenter.getUnsavedReceipts()
         receiptsLiveData.observe(this, Observer { receipts ->
-            adapter.mReceiptsList.clear()
-            adapter.mReceiptsList.addAll(receipts!!)
+            adapter.mItemsList.clear()
+            adapter.mItemsList.addAll(receipts!!)
             adapter.notifyDataSetChanged()
         })
     }

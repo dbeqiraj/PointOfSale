@@ -4,14 +4,21 @@
         android:title="@string/configurations">
 
         <EditTextPreference
-            android:inputType="numberDecimal"
             android:key="@string/pref_tax"
+            android:inputType="numberDecimal"
             android:defaultValue="@string/pref_default_vat"
             android:maxLines="1"
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:summary="@string/set_vat"
             android:title="@string/vat" />
+
+        <ListPreference
+            android:key="@string/pref_date_format"
+            android:entries="@array/prefDateFormat"
+            android:entryValues="@array/prefDateFormatValues"
+            android:summary="@string/choose_date_format"
+            android:title="@string/date_format" />
 
     </PreferenceCategory>
 

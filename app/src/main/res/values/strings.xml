@@ -32,7 +32,8 @@
     <string name="vat">VAT</string>
     <string name="set_vat">Set VAT in %</string>
     <string name="pref_default_vat">0</string>
-    <string name="pref_tax">Tax</string>
+    <string name="pref_tax">tax</string>
+    <string name="pref_date_format">date_format</string>
     <string name="saving_item">Saving item…</string>
     <string name="cannot_add_item">Cannot add item, please try again.</string>
     <string name="add_receipt">Add receipt</string>
@@ -48,4 +49,15 @@
     <string name="total_money">Total %1$s</string>
     <string name="prompt_done">Done</string>
     <string name="pos">POS</string>
+    <string name="date_format">Date format</string>
+
+    <string-array name="prefDateFormat">
+        <item name="sec">dd/MM/yyyy</item>
+        <item name="sec">MM/dd/yyyy</item>
+    </string-array>
+    <string-array name="prefDateFormatValues">
+        <item>dd/MM/yyyy</item>
+        <item>MM/dd/yyyy</item>
+    </string-array>
+    <string name="choose_date_format">Choose date format</string>
 </resources>

@@ -81,8 +81,8 @@ class NewReceiptActivity : BaseActivity(), CurrentSaleView {
         setupAdapter(adapter)
         val itemsAndReceiptRowLiveData = receiptRowPresenter.getItemsAndRowsByReceipt(receipt!!.id)
         itemsAndReceiptRowLiveData.observe(this, Observer { itemsAndReceiptRows ->
-            adapter.mItemsAndReceiptRowsList.clear()
-            adapter.mItemsAndReceiptRowsList.addAll(itemsAndReceiptRows!!)
+            adapter.mItemsList.clear()
+            adapter.mItemsList.addAll(itemsAndReceiptRows!!)
             adapter.notifyDataSetChanged()
         })
     }

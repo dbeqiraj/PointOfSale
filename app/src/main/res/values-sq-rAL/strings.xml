@@ -30,7 +30,6 @@
     <string name="configurations">Konfigurime</string>
     <string name="vat">TVSH</string>
     <string name="set_vat">Vendos TVSH ne %</string>
-    <string name="pref_tax">Takse</string>
     <string name="saving_item">Artikulli po ruhet…</string>
     <string name="cannot_add_item">Nuk mund te shtohet artikulli, ju lutem provojeni me vone.</string>
     <string name="add_receipt">Shto fature</string>
@@ -41,4 +40,6 @@
     <string name="apply_tax">Apliko takse</string>
     <string name="prompt_cancel">Anullo</string>
     <string name="prompt_done">Perfundo</string>
+    <string name="date_format">Formati i dates</string>
+    <string name="choose_date_format">Zgjidh formatin e dates</string>
 </resources>

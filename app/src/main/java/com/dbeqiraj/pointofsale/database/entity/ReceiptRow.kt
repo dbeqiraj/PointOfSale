@@ -2,6 +2,7 @@ package com.dbeqiraj.pointofsale.database.entity
 
 import android.arch.persistence.room.*
 import android.support.annotation.NonNull
+import com.dbeqiraj.pointofsale.base.BaseEntity
 import com.dbeqiraj.pointofsale.utilities.DateUtils
 import java.util.*
 
@@ -49,7 +50,7 @@ class ReceiptRow(
         @NonNull
         @ColumnInfo(name = "rec_row_receipt_id")
         val receiptId: Long
-) {
+) : BaseEntity() {
     @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "receipt_row_id")

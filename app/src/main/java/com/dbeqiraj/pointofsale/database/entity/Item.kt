@@ -3,6 +3,7 @@ package com.dbeqiraj.pointofsale.database.entity
 import android.arch.persistence.room.*
 import android.arch.persistence.room.ForeignKey.CASCADE
 import android.support.annotation.NonNull
+import com.dbeqiraj.pointofsale.base.BaseEntity
 
 @Entity(tableName = "item",
         foreignKeys = [(ForeignKey(
@@ -34,7 +35,7 @@ class Item(
         @NonNull
         @ColumnInfo(name = "item_category_id")
         val categoryId: Long
-) {
+) : BaseEntity() {
     @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "item_id")
