@@ -9,9 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import java.util.*
 
-abstract class BaseRecyclerViewAdapter constructor(layoutInflater: LayoutInflater) : RecyclerView.Adapter<BaseViewHolder>() {
-
-    private val FOOTER_VIEW = 1
+abstract class BaseRecyclerViewAdapter constructor(layoutInflater: LayoutInflater) : RecyclerView.Adapter<BaseRecyclerViewAdapter.ItemViewHolder>() {
 
     internal lateinit var mContext: Context
     internal lateinit var prefs: SharedPreferences
@@ -25,26 +23,19 @@ abstract class BaseRecyclerViewAdapter constructor(layoutInflater: LayoutInflate
         prefs = PreferenceManager.getDefaultSharedPreferences(mContext)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        when(viewType) {
-            FOOTER_VIEW -> return BaseRecyclerViewAdapter.FooterViewHolder(mLayoutInflater.inflate(getFooterContentView(), parent, false))
-            else -> return BaseRecyclerViewAdapter.ItemViewHolder(mLayoutInflater.inflate(getItemContentView(), parent, false))
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        return BaseRecyclerViewAdapter.ItemViewHolder(mLayoutInflater.inflate(getItemContentView(), parent, false))
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) = fillItemView(holder.view, mItemsList[position])
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) = fillItemView(holder.view, mItemsList[position])
 
     override fun getItemCount(): Int = mItemsList.size
 
     protected abstract fun fillItemView(view: View, item: BaseEntity)
 
-    class ItemViewHolder(view: View) : BaseViewHolder(view)
-
-    class FooterViewHolder(view: View) : BaseViewHolder(view)
+    class ItemViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
     protected abstract fun getItemContentView(): Int
-
-    protected open fun getFooterContentView(): Int = -1
 
     protected fun getString(id: Int) = mContext.getString(id)
 

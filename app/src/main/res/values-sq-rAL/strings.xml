@@ -42,4 +42,6 @@
     <string name="prompt_done">Perfundo</string>
     <string name="date_format">Formati i dates</string>
     <string name="choose_date_format">Zgjidh formatin e dates</string>
+    <string name="items">Artikuj</string>
+    <string name="items_count">Artikuj %1$s</string>
 </resources>

@@ -60,4 +60,6 @@
         <item>MM/dd/yyyy</item>
     </string-array>
     <string name="choose_date_format">Choose date format</string>
+    <string name="items">Items</string>
+    <string name="items_count">Items %1$s</string>
 </resources>

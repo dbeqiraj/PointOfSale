@@ -1,31 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.new_receipt.NewReceiptActivity"
     tools:showIn="@layout/activity_new_receipt"
-    android:orientation="vertical"
-    style="@style/ContentParent">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    style="@style/ScrollableContentParent">
 
-    <TextView
-        android:id="@+id/add_item"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorBlack"
-        android:textSize="18sp"
-        android:text="@string/add_item"
-        android:gravity="center_vertical"
-        android:drawableLeft="@mipmap/baseline_add_black_24"
-        android:drawableStart="@mipmap/baseline_add_black_24"
-        android:paddingTop="@dimen/padding_vertical"
-        android:paddingBottom="@dimen/padding_vertical"
-        android:paddingStart="@dimen/padding_horizontal"
-        android:paddingEnd="@dimen/padding_horizontal"
-        android:background="@drawable/button_add_item"/>
+        android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        <TextView
+            android:id="@+id/add_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:text="@string/add_item"
+            android:gravity="center_vertical"
+            android:drawableLeft="@mipmap/baseline_add_black_24"
+            android:drawableStart="@mipmap/baseline_add_black_24"
+            android:paddingTop="@dimen/padding_vertical"
+            android:paddingBottom="@dimen/padding_vertical"
+            android:paddingStart="@dimen/padding_horizontal"
+            android:paddingEnd="@dimen/padding_horizontal"
+            android:background="@drawable/button_add_item"/>
 
-</LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <include layout="@layout/footer" />
+
+    </LinearLayout>
+</ScrollView>

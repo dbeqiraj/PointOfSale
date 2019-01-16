@@ -44,41 +44,12 @@
             android:layout_margin="@dimen/fab_margin"
             app:srcCompat="@android:drawable/ic_input_add" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="7dp"
-            android:paddingBottom="7dp"
-            android:paddingStart="@dimen/padding_horizontal"
-            android:paddingEnd="@dimen/padding_horizontal"
             android:background="@drawable/footer">
-            <TextView
-                android:id="@+id/total_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:gravity="end"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/margin_horizontal"
-                android:layout_marginStart="@dimen/margin_horizontal"
-                android:text=""/>
-
-            <TextView
-                android:id="@+id/items_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/total_price"
-                android:layout_toStartOf="@+id/total_price"
-                android:maxLines="1"
-                android:text=""/>
-        </RelativeLayout>
+            <include layout="@layout/footer" />
+        </LinearLayout>
 
     </LinearLayout>
 

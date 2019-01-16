@@ -14,7 +14,10 @@ import com.dbeqiraj.pointofsale.di.component.DaggerNewReceiptComponent
 import com.dbeqiraj.pointofsale.di.module.NewReceiptModule
 import com.dbeqiraj.pointofsale.ui.cart.CartActivity
 import com.dbeqiraj.pointofsale.ui.new_receipt.adapter.ItemAdapter
+import com.dbeqiraj.pointofsale.ui.new_receipt.extensions.getItems
+import com.dbeqiraj.pointofsale.ui.new_receipt.extensions.setupFooter
 import com.dbeqiraj.pointofsale.utilities.Constants.RESULT_CODE_FAILED
+import com.dbeqiraj.pointofsale.vp.presenter.ReceiptPresenter
 import com.dbeqiraj.pointofsale.vp.presenter.ReceiptRowPresenter
 import com.dbeqiraj.pointofsale.vp.view.CurrentSaleView
 import kotlinx.android.synthetic.main.content_new_receipt.*
@@ -29,6 +32,9 @@ class NewReceiptActivity : BaseActivity(), CurrentSaleView {
 
     @Inject
     protected lateinit var db: PosDatabase
+
+    @Inject
+    internal lateinit var receiptPresenter: ReceiptPresenter
 
     @Inject
     internal lateinit var receiptRowPresenter: ReceiptRowPresenter
@@ -74,27 +80,15 @@ class NewReceiptActivity : BaseActivity(), CurrentSaleView {
     private fun updateUIOnReceiptReady() {
         title = String.format(getString(R.string.receipt_nr), receipt!!.id)
         getItems()
+        setupFooter();
     }
 
-    private fun getItems() {
-        val adapter = ItemAdapter(LayoutInflater.from(this))
-        setupAdapter(adapter)
-        val itemsAndReceiptRowLiveData = receiptRowPresenter.getItemsAndRowsByReceipt(receipt!!.id)
-        itemsAndReceiptRowLiveData.observe(this, Observer { itemsAndReceiptRows ->
-            adapter.mItemsList.clear()
-            adapter.mItemsList.addAll(itemsAndReceiptRows!!)
-            adapter.notifyDataSetChanged()
-        })
-    }
-
-    private fun setupAdapter(adapter: ItemAdapter) {
+    internal fun setupAdapter(adapter: ItemAdapter) {
         val mLayoutManager = LinearLayoutManager(this)
         recycler_view.setLayoutManager(mLayoutManager)
         recycler_view.setItemAnimator(DefaultItemAnimator())
         recycler_view.setAdapter(adapter)
     }
-
-    override fun getContentView(): Int = R.layout.activity_new_receipt
 
     fun setOnClickListeners() {
         add_item.setOnClickListener {
@@ -122,4 +116,6 @@ class NewReceiptActivity : BaseActivity(), CurrentSaleView {
                 .newReceiptModule(NewReceiptModule(this))
                 .build().inject(this)
     }
+
+    override fun getContentView(): Int = R.layout.activity_new_receipt
 }
