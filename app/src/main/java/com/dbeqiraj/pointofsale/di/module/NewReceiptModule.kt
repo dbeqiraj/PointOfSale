@@ -7,11 +7,8 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class NewReceiptModule(view: CurrentSaleView) {
-
-    val mView = view
-
+class NewReceiptModule(val view: CurrentSaleView) {
     @PerActivity
     @Provides
-    fun provideView(): CartView = mView
+    fun provideView(): CartView = view
 }

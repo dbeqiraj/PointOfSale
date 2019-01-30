@@ -9,9 +9,7 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class ApplicationModule constructor(context: Context){
-
-    val mContext: Context = context
+class ApplicationModule constructor(val mContext: Context){
 
     @Singleton
     @Provides

@@ -8,11 +8,8 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class AddCategoryModule(view: AddCategoryView) {
-
-    val mView = view
-
+class AddCategoryModule(val view: AddCategoryView) {
     @PerActivity
     @Provides
-    fun provideView(): AddCategoryView = mView
+    fun provideView(): AddCategoryView = view
 }

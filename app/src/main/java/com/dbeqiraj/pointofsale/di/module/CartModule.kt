@@ -6,11 +6,8 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class CartModule(view: CartView) {
-
-    val mView = view
-
+class CartModule(val view: CartView) {
     @PerActivity
     @Provides
-    fun provideView(): CartView = mView
+    fun provideView(): CartView = view
 }

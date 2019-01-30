@@ -3,6 +3,9 @@
     <string name="add_item">Add Item</string>
     <string-array name="menu_items">
         <item>Receipts</item>
+        <item>Reports by item</item>
+        <item>Reports by date</item>
+        <item>Reports by category</item>
     </string-array>
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
@@ -62,4 +65,9 @@
     <string name="choose_date_format">Choose date format</string>
     <string name="items">Items</string>
     <string name="items_count">Items %1$s</string>
+    <string name="pick_item">Pick Item</string>
+    <string name="today_only">Today only</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="date_eu_format">dd/mm/yyyy</string>
 </resources>

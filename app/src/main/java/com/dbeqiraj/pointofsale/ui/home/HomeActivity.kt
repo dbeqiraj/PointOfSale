@@ -21,6 +21,7 @@ import com.dbeqiraj.pointofsale.di.component.DaggerHomeComponent
 import com.dbeqiraj.pointofsale.di.module.HomeModule
 import com.dbeqiraj.pointofsale.ui.config.ConfigActivity
 import com.dbeqiraj.pointofsale.ui.home.adapter.ReceiptsAdapter
+import com.dbeqiraj.pointofsale.ui.home.extensions.onMenuItemClicked
 import com.dbeqiraj.pointofsale.ui.new_receipt.NewReceiptActivity
 import com.dbeqiraj.pointofsale.ui.new_receipt.interfaces.OnReceiptClicked
 import com.dbeqiraj.pointofsale.utilities.Constants.REQUEST_CODE_NEW_RECEIPT
@@ -110,10 +111,10 @@ class HomeActivity : BaseActivity(), HomeView, OnReceiptClicked {
             toggle.syncState()
 
             val header = layoutInflater.inflate(R.layout.nav_menu_header, null)
-
             val adapter = ArrayAdapter(this, R.layout.nav_menu_item, resources.getStringArray(R.array.menu_items))
             menu_items.addHeaderView(header)
             menu_items.adapter = adapter
+            menu_items.onItemClickListener = onMenuItemClicked
         } catch (e: Exception) {
             e.printStackTrace()
             Log.e(javaClass.simpleName, "Failed at setupNavDrawer!")

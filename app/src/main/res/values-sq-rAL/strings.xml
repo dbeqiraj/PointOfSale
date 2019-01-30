@@ -4,6 +4,9 @@
     <string name="add_item">Shto Artikull</string>
     <string-array name="menu_items">
         <item>Faturat</item>
+        <item>Raport sipas artikullit</item>
+        <item>Raport sipas dates</item>
+        <item>Raport sipas kategorise</item>
     </string-array>
     <string name="navigation_drawer_open">Hap</string>
     <string name="navigation_drawer_close">Mbyll</string>
@@ -44,4 +47,8 @@
     <string name="choose_date_format">Zgjidh formatin e dates</string>
     <string name="items">Artikuj</string>
     <string name="items_count">Artikuj %1$s</string>
+    <string name="pick_item">Zgjidh Artikullin</string>
+    <string name="today_only">Vetem sot</string>
+    <string name="from">Nga</string>
+    <string name="to">Deri</string>
 </resources>

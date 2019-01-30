@@ -45,7 +45,7 @@ class CartActivity : BaseActivity(), CartView {
         super.onViewReady(savedInstanceState, intent)
         title = getString(R.string.create_cart)
         receipt = intent.getSerializableExtra("receipt") as Receipt
-        setupView()
+        setupContentView()
         setOnClickListeners()
     }
 
@@ -59,7 +59,7 @@ class CartActivity : BaseActivity(), CartView {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setupView() {
+    private fun setupContentView() {
         setSupportActionBar(toolbar)
         showBackArrow()
         setupCategories()
